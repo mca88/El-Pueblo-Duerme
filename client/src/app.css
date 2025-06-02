@@ -1,0 +1,119 @@
+:root {
+    --primary: #248faa;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body>main {
+    padding: 0;
+}
+
+main {
+    min-height: 100vh;
+    flex-grow: 1;
+    margin: 0 auto;
+
+    /* padding: 20px; */
+    /* background-color: aliceblue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-wrapper {
+    /* background-color: #535bf2; */
+    max-width: 1280px;
+    margin: 0 auto;
+    /* padding: 2rem; */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.player-list {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid var(--muted-border-color);
+    border-radius: var(--border-radius);
+    padding: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.player-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    margin: 0;
+    border-bottom: 1px solid var(--muted-border-color);
+}
+
+.player-item:last-child {
+    border-bottom: none;
+}
+
+.player-name {
+    flex-grow: 1;
+    font-size: 1.1rem;
+}
+
+.player-select {
+    margin-left: 1rem;
+}
+
+/* Checkbox más grande y simple */
+.large-checkbox {
+    cursor: pointer;
+    accent-color: #3498db;
+    transform: scale(1.6);
+}
+
+.selected-info {
+    text-align: right;
+    margin-bottom: 1rem;
+}
+
+.instruction-text {
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--form-text);
+    text-align: center;
+}
+
+.confirmation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.selection-title {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--primary, #1095c1);
+}
+
+.prey-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--danger, #dc3545);
+    margin: 0.5rem 0 1rem 0;
+}
