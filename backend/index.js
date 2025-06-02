@@ -10,7 +10,7 @@ const path = require('path');
 //dev shite with cors support.. remember to change this later
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:5173', 'http://localhost:5174'],
+        origin: ['http://localhost:5173', 'http://localhost:5174', 'https://el-pueblo-duerme.vercel.app/'],
         credentials: true,
     },
 });
