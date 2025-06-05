@@ -17,7 +17,7 @@
 	function gameCanStart() {
 		let result = true;
 
-		if ($players.length < 3) return false;
+		if ($players.length <= 7) return false;
 
 		$players.forEach((player) => {
 			if (player.id === $gameProps.creator) return;
