@@ -248,7 +248,7 @@
         </p>
         <TimerWait
             timeLeft={finalTimer.timeLeft}
-            text="Cierra los ojos y espera al siguiente rol. O jódete si te han expulsad"
+            text="Cierra los ojos y espera al siguiente rol. O jódete si te han expulsado"
         />
     </div>
 {/if}

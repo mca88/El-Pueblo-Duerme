@@ -13,7 +13,7 @@
 
     let lover = $players.find((p) => p.id === $player.loversWith);
 
-    const { timeLeft, start } = useTime(10, loversMeetEnd);
+    const { timeLeft, start } = useTime(15, loversMeetEnd);
     start();
 </script>
 

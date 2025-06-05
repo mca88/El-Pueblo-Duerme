@@ -95,7 +95,6 @@ module.exports = class Game {
             this.status = "day"
             this.resolveDeaths()
         }
-        logger.debug(`EN turno ${this.round} Siguiente rol: ${this.turn}`)
     }
 
     resolveDeaths() {
@@ -176,7 +175,7 @@ module.exports = class Game {
 
         const aliveWolves = alivePlayers.filter(p => p.role === Roles.LOBO);
         const aliveTown   = alivePlayers.filter(p => p.role !== Roles.LOBO);
-        const aliveLovers = alivePlayers.filter(p => p.loversWith !== "" || p.loversWith !== undefined);
+        const aliveLovers = alivePlayers.filter(p => p.loversWith !== '');
 
         if(aliveWolves.length === 0){
 
@@ -184,7 +183,6 @@ module.exports = class Game {
         }
         if(aliveLovers.length === 2){
             drama = aliveLovers[0].role === Roles.LOBO && aliveLovers[1].role !== Roles.LOBO
-
             if(alivePlayers <= 3){
                 return Roles.ENAMORADOS
             }
