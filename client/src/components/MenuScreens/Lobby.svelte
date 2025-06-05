@@ -91,8 +91,18 @@
 		overflow-y: scroll;
 		max-height: 800px;
 		font-size: 20px;
+
+		/* Ocultar todas las barras de desplazamiento */
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* IE y Edge */
+	}
+
+	.game-list::-webkit-scrollbar {
+    	display: none; /* Chrome, Safari y Opera */
 	}
 	.game-list li {
 		width: 100%;
 	}
+
+	
 </style>
