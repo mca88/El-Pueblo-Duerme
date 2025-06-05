@@ -9,7 +9,7 @@ module.exports = class Player {
         this.ready = false;
         this.alive = true;
         this.role = Roles.ALDEANO;
-        this.loversWith = "";
+        this.loversWith = null;
     }
 };
 

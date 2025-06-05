@@ -124,7 +124,7 @@
                             <div class="dead-player">
                                 <strong
                                     >{player.name}
-                                    {#if $players.find((p) => p.name === player.name).loversWith !== ""}
+                                    {#if $players.find((p) => p.name === player.name).loversWith !== null}
                                         ❤️
                                     {/if}
                                 </strong>

@@ -3,6 +3,8 @@
     import { Roles, showRolePretty } from "$src/utils";
 
     export let winnerRole;
+
+    console.log($players)
 </script>
 
 {#if winnerRole === Roles.ALDEANO}
@@ -18,14 +20,17 @@
 
     <ul class="player-list">
         {#each $players as player}
+        
             <li class="player-item">
                 <div class="player-info">
-                    <span class="player-name">{player.name}</span>
+                    <span class="player-name">
+                        {player.name}
+                        {#if player.loversWith !== null}
+                            <span class="heart">❤️</span>
+                        {/if}
+                    </span>
                     <span class="player-role">{showRolePretty(player.role)}</span>
                 </div>
-                {#if player.loverWith !== undefined && player.loverWith !== ""}
-                    <span class="heart">❤️</span>
-                {/if}
             </li>
         {/each}
     </ul>

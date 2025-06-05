@@ -33,3 +33,19 @@ Role to role, you will be hearing a voice advertising what the players must do:
 Until your role comes, you must be waiting with your eyes closed. (There is a special event when everybody must awake to know if they have a lover).
 
 # The voting screen
+
+![VoteScreen](pictures-for-readme/votingScreen.png)
+
+Here, all players can argue about who will be the one going out this turn. They can choose not to kick anyone or make the acusations. But be quick, you have a timer to end the voting phase.
+
+# The end screen
+
+![WinScreen](pictures-for-readme/winScreen.png)
+
+Finally, when someone wins, it will be displayed. You can also check all the other player roles.
+
+# TO-DO
+
+- Add more roles
+- Add audios for winning roles
+- Create event list at the end of the game

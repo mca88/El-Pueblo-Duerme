@@ -2,8 +2,21 @@ import { writable } from 'svelte/store';
 
 export const activeComponent = writable('start');
 export const players = writable([]);
-export const player = writable({name: '', id: '', ready : false, alive : true, role : '', loversWith : ""});
-export const gameProps = writable({id: '', name: '', round: 1, voteTime: 10, creator: ' ', status: 'open', turn : '', selectedToDie: [], witchPotionsUsed: {kill: false, revive: false}});
+export const player = writable({name: '', id: '', ready : false, alive : true, role : '', loversWith : null});
+export const gameProps = writable(
+    {
+        id: '', 
+        name: '', 
+        round: 1, 
+        voteTime: 10, 
+        creator: ' ', 
+        status: 'open', 
+        turn: '', 
+        selectedToDie: [], 
+        witchPotionsUsed: {kill: false, revive: false},
+        winner: null
+    }
+);
 
 export function useTime(duration, whatToDoNext){
     const timeLeft = writable(duration);

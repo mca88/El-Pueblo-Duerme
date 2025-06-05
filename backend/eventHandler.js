@@ -152,15 +152,7 @@ module.exports = function (io) {
             const game = games.get(gameId);
 
             game.getNextRole();
-
-            const winCon = game.resolveWin()
-
-            if(winCon === null){
-                io.to(gameId).emit('continue', game.getPublicData());
-            }
-            else{
-                io.to(gameId).emit('game-end', winCon)
-            }
+            io.to(gameId).emit('continue', game.getPublicData());
         })
 
         socket.on("wolf-selection", (new_selection, gameId) => {
@@ -174,15 +166,7 @@ module.exports = function (io) {
             }
             
             game.getNextRole();
-
-            const winCon = game.resolveWin()
-
-            if(winCon === null){
-                io.to(gameId).emit('continue', game.getPublicData());
-            }
-            else{
-                io.to(gameId).emit('game-end', winCon)
-            }
+            io.to(gameId).emit('continue', game.getPublicData());
         })
 
         socket.on("witch-actions", (gameId, actions) =>{

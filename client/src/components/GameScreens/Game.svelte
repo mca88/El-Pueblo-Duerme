@@ -9,8 +9,8 @@
     export let socket;
 
     getPlayerRole();
+    console.log($gameProps)
     let mostrarRol = true;
-    $: winner = null;
 
     function getPlayerRole() {
         const match = $players.find((p) => p.id === $player.id);
@@ -37,11 +37,13 @@
         const match = $players.find((p) => p.id === $player.id);
         player.set(match);
 
-        playRoleAudio($gameProps.turn);
-    });
-
-    socket.on("game-end", (winner_role) => {
-        winner = winner_role;
+        if($gameProps.winner === null){
+            playRoleAudio($gameProps.turn);
+        }
+        else{
+            playRoleAudio(Roles.ALDEANO);
+        }
+        
     });
 </script>
 
@@ -67,7 +69,7 @@
     </div>
 
     <div class="game">
-        {#if winner === null}
+        {#if $gameProps.winner === null}
             {#if $player.alive}
                 {#if $gameProps.status === "started"}
                     <h1>Fase de Preparación</h1>
@@ -84,7 +86,7 @@
                 <div class="dead-skull">💀</div>
             {/if}
         {:else}
-            <WinScreen winnerRole={winner} />
+            <WinScreen winnerRole={$gameProps.winner} />
         {/if}
     </div>
 </div>

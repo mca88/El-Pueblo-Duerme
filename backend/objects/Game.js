@@ -19,6 +19,7 @@ module.exports = class Game {
             revive: false
         };
         this.votes = [];
+        this.winner = null
     }
 
     join(player) {
@@ -48,7 +49,8 @@ module.exports = class Game {
             turn: this.turn,
             selectedToDie: this.selectedToDie,
             witchPotionsUsed: this.witchPotionsUsed,
-            players: this.players
+            players: this.players,
+            winner: this.winner
         };
     }
 
@@ -94,6 +96,7 @@ module.exports = class Game {
         if (this.turn === Roles.ALDEANO) {
             this.status = "day"
             this.resolveDeaths()
+            this.resolveWin()
         }
     }
 
@@ -103,7 +106,7 @@ module.exports = class Game {
                 player.alive = false
                 this.resolveDeadRole(player)
 
-                if (player.loversWith !== "") {
+                if (player.loversWith !== null) {
                     const playerLover = this.players.find(p => p.id === player.loversWith)
                     playerLover.alive = false
                     this.resolveDeadRole(playerLover)
@@ -162,6 +165,7 @@ module.exports = class Game {
             }
         }
 
+        this.resolveWin()
         this.status = "night";
         this.selectedToDie = [];
         this.votes = [];
@@ -175,22 +179,19 @@ module.exports = class Game {
 
         const aliveWolves = alivePlayers.filter(p => p.role === Roles.LOBO);
         const aliveTown   = alivePlayers.filter(p => p.role !== Roles.LOBO);
-        const aliveLovers = alivePlayers.filter(p => p.loversWith !== '');
+        const aliveLovers = alivePlayers.filter(p => p.loversWith !== null);
 
         if(aliveWolves.length === 0){
-
-            return Roles.ALDEANO
+            this.winner = Roles.ALDEANO
         }
-        if(aliveLovers.length === 2){
+        else if(aliveLovers.length === 2){
             drama = aliveLovers[0].role === Roles.LOBO && aliveLovers[1].role !== Roles.LOBO
-            if(alivePlayers <= 3){
-                return Roles.ENAMORADOS
+            if(alivePlayers.length <= 3){
+                this.winner = Roles.ENAMORADOS
             }
         }
-        if(aliveWolves.length >= aliveTown.length && !drama){
-            return Roles.LOBO
+        else if(aliveWolves.length >= aliveTown.length && !drama){
+            this.winner = Roles.LOBO
         }
-        
-        return null
     }
 };
