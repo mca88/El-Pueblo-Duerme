@@ -183,14 +183,16 @@ module.exports = class Game {
 
         if(aliveWolves.length === 0){
             this.winner = Roles.ALDEANO
+            return
         }
-        else if(aliveLovers.length === 2){
+        if(aliveLovers.length === 2){
             drama = aliveLovers[0].role === Roles.LOBO && aliveLovers[1].role !== Roles.LOBO
             if(alivePlayers.length <= 3){
                 this.winner = Roles.ENAMORADOS
+                return
             }
         }
-        else if(aliveWolves.length >= aliveTown.length && !drama){
+        if(aliveWolves.length >= aliveTown.length && !drama){
             this.winner = Roles.LOBO
         }
     }
